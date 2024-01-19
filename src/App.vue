@@ -1,13 +1,12 @@
 <template>
   
-  <div class="container">
+  <div class="container mx-auto">
     <router-view />
   </div>
 </template>
 
 <script>
 import '@/styles/tailwind.css'
-import router from '@/router'
 
 export default {
   data() {
