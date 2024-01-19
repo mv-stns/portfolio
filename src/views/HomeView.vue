@@ -28,6 +28,7 @@ export default {
     <div class="w-1/3 m-auto h-1/3" :class="isDarkMode ? 'bg-zinc-950' : ''">
     <!-- <Navigation />
     <RouterView class="h-full" /> -->
+    <router-link to="/portfolio">Portfolio</router-link>
     <picture>
       <source
         media="(prefers-color-scheme: dark)"
