@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-4">
     <h1 class="text-4xl [font-family:'Geist',sans-serif]">Portfolio</h1>
-    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 md:p-6">
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       <Work
         class="cursor-pointer"
         v-for="work in works"

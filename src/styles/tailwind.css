@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {    
+    .circle:nth-child(2),
+    .circle:nth-child(4),
+    .circle:nth-child(6),
+    .circle:nth-child(8) {
+        @apply animate-loading;
+    }
+}
