@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { MotionPlugin } from 'node_modules/@vueuse/motion'
+import { MotionPlugin } from '../node_modules/@vueuse/motion'
 
 import './styles/tailwind.css'
 import './styles/_fonts.scss'
