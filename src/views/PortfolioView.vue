@@ -1,8 +1,15 @@
 <template>
-  <div class="flex flex-col gap-4">
-    <h1 class="text-4xl [font-family:'Geist',sans-serif]">Portfolio</h1>
-    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <Work
+  <div class="flex flex-col gap-4 h-screen">
+    <div class="pt-32 pb-12 self-start w-full">
+      <h1 class="text-4xl font-bold tracking-tight flex-none max-w-lg text-zinc-800 sm:text-5xl dark:text-zinc-100">
+        Works
+      </h1>
+      <p class="mt-8 text-zinc-600 dark:text-zinc-400 grow">
+        Here are some of my works I've done in the past.
+      </p>
+    </div>
+    <section class="grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <!-- <Work
         class="cursor-pointer"
         v-for="work in works"
         :key="work.id"
@@ -10,7 +17,16 @@
         :title="work.title"
         :date="new Date(work.date)"
         @click="toggler = !toggler, slide = work.id"
-      />
+      /> -->
+      <Work
+        class="cursor-pointer"
+        v-for="work in works"
+        :key="work.id"
+        :image="work.image"
+        :title="work.title"
+        :date="new Date(work.date)"
+        @click="handleClick(work.id)">
+      </Work>
     </section>
   </div>
   <!-- set current image as lightbox -->
@@ -21,6 +37,17 @@
     :type="'image'"
     :slide="slide"
   />
+  <teleport 
+    ref="popup"
+    to="body">
+    <WorkPopup
+      v-if="popup"
+      :image="works[popup - 1].image"
+      :title="works[popup - 1].title"
+      :date="new Date(works[popup - 1].date)" 
+      @close="closePopup"
+      />
+  </teleport>
 
 </template>
 
@@ -28,6 +55,7 @@
 import Work from '@/views/work/Work.vue'
 import FsLightbox from 'fslightbox-vue/v3'
 import { ref } from 'vue'
+import WorkPopup from './work/Work.popup.vue'
 
 const works = [
   {
@@ -90,12 +118,22 @@ const works = [
 export default {
   components: {
     Work,
-    FsLightbox
+    FsLightbox,
+    WorkPopup
   },
   data() {
     return {
       works,
-      toggler: ref(false)
+      toggler: ref(false),
+      popup: null,
+    }
+  },
+  methods: {
+    handleClick(id) {
+      this.popup = id
+    },
+    closePopup() {
+      this.popup = null
     }
   }
 }

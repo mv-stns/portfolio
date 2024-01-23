@@ -1,0 +1,23 @@
+// Font File
+$fonts: (
+    font: "SF-Pro-Rounded",
+    names: (
+        "Ultralight": 100, 
+        "Thin": 200,
+        "Light": 300,
+        "Regular": 400,
+        "Medium": 500,
+        "Semibold": 600,
+        "Bold": 700,
+        "Heavy": 800,
+        "Black": 900
+    )
+);
+
+@each $name, $weight in map-get($fonts, names) {
+    @font-face {
+        font-family: map-get($fonts, font);
+        font-weight: $weight;
+        src: url("./fonts/#{map-get($fonts, font)}-#{$name}.otf") format("opentype");
+    }
+}

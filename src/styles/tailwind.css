@@ -11,3 +11,7 @@
         @apply animate-loading;
     }
 }
+
+* {
+    @apply font-sans;
+}

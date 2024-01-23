@@ -25,7 +25,11 @@ module.exports = {
                   "0px 18.128px 18.128px -9.064px rgba(0,0,0,0.06)," +
                   "0px 36.257px 36.257px -18.128px rgba(0,0,0,0.06)",
                   
-      }
+      },
+      fontFamily: {
+        'round': ['"SF Pro Rounded"', 'sans-serif'],
+        'playfair': ['Playfair Display', 'serif'],
+      },
     },
     fontFamily: {
       'sans': ['Geist', 'sans-serif']

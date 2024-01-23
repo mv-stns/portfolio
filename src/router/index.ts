@@ -11,22 +11,34 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: AboutView
+      component: AboutView,
+      meta: {
+        title: 'About Me'
+      }
     },
     {
       path: '/portfolio',
       name: 'portfolio',
-      component: PortfolioView
+      component: PortfolioView,
+      meta: {
+        title: 'Portfolio'
+      }
     },
     {
       path: '/articles',
       name: 'articles',
-      component: ArticlesView
+      component: ArticlesView,
+      meta: {
+        title: 'Articles'
+      }
     },
     {
       path: '/uses',
       name: 'uses',
-      component: UsesView
+      component: UsesView,
+      meta: {
+        title: 'Hardware & Software Stack'
+      }
     }
   ]
 })
