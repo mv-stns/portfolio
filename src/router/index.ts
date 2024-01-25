@@ -14,7 +14,41 @@ const router = createRouter({
       component: AboutView,
       meta: {
         title: 'About Me'
-      }
+      },
+      children: [
+        {
+          path: 'about',
+          name: 'about',
+          component: AboutView,
+          meta: {
+            title: 'About Me'
+          }
+        },
+        {
+          path: 'portfolio',
+          name: 'portfolio',
+          component: PortfolioView,
+          meta: {
+            title: 'Portfolio'
+          }
+        },
+        {
+          path: 'articles',
+          name: 'articles',
+          component: ArticlesView,
+          meta: {
+            title: 'Articles'
+          }
+        },
+        {
+          path: 'uses',
+          name: 'uses',
+          component: UsesView,
+          meta: {
+            title: 'Hardware & Software Stack'
+          }
+        }
+      ]
     },
     {
       path: '/portfolio',

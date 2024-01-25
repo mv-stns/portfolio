@@ -1,4 +1,13 @@
-<script setup>
+<script lang="ts">
+import { defineComponent } from "vue"
+import { toast } from "vue-sonner"
+export default defineComponent({
+  methods: {
+    runToast() {
+      toast.success("Hello World")
+    }
+  }
+})
 </script>
 
 <template>

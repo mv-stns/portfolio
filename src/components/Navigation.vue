@@ -1,42 +1,52 @@
 
 
-<script>
+<script lang="ts">
+import { toast } from 'vue-sonner'
+import { useRoute, useRouter } from 'vue-router'
+import { defineComponent } from 'vue'
 
-export default {
-  name: 'Navigation',
-  components: {
+export default defineComponent({
 
-  },
-  // navigate to each route when the corresponding radio button is clicked
-  methods: {
-    navigateToAbout() {
-      this.$router.push({ name: 'home' })
-    },
-    navigateToPortfolio() {
-      this.$router.push({ name: 'portfolio' })
-    },
-    navigateToArticles() {
-      this.$router.push({ name: 'articles' })
-    },
-    navigateToUses() {
-      this.$router.push({ name: 'uses' })
+  data() {
+    return {
+      route: useRoute(),
+      router: useRouter()
     }
   },
-}
+  methods: {
+    navigateTo(path: string) {
+      this.router.push(path)
+    },
+    navigateToPortfolio() {
+      this.router.push('/portfolio')
+    },
+    navigateToArticles() {
+      this.router.push('/articles')
+    },
+    navigateToUses() {
+      this.router.push('/uses')
+    },
+  },
+  computed: {
+    prefersDark() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+    }
+  },
+
+})
+
 </script>
 
 <template>
-  <nav
-    class="mx-auto w-fit p-2 rounded-full fixed left-0 right-0 top-5 z-50"
-  >
+  <nav class="mx-auto w-fit p-2 rounded-full fixed left-0 right-0 top-5 z-50">
     <div
       class="relative w-[800px] flex gap-1 rounded-xl dark:bg-zink-800 bg-gray-200 ring-[2px] ring-gray-200 dark:ring-zinc-800 dark:bg-zinc-800"
     >
-      <input class="peer/about hidden" type="radio" name="range" id="about"
-        :checked="$route.path === '/'"
-      />
+      <!-- add method to input to navigate to "/" -->
+      <input class="peer/about hidden" type="radio" name="range" id="about" 
+        @click="navigateTo('/')"
+        />
       <label
-      @click="navigateToAbout" 
         class="z-10 cursor-pointer px-6 py-2 text-center basis-full text-gray-400 transition-all duration-500 ease-[cubic-bezier(0.15,0.88,0.15,0.97)] hover:text-gray-500 peer-checked/about:text-black dark:peer-checked/about:text-white"
         for="about"
       >
@@ -44,32 +54,29 @@ export default {
       </label>
 
       <input class="peer/portfolio hidden" type="radio" name="range" id="portfolio"
-        :checked="$route.path === '/portfolio'"
+        @click="navigateToPortfolio()"
       />
       <label
-      @click="navigateToPortfolio" 
         class="z-10 cursor-pointer px-6 py-2 text-center basis-full text-gray-400 transition-all duration-500 ease-[cubic-bezier(0.15,0.88,0.15,0.97)] hover:text-gray-500 peer-checked/portfolio:text-black dark:peer-checked/portfolio:text-white"
         for="portfolio"
       >
         Portfolio
       </label>
 
-      <input class="peer/articles hidden" type="radio" name="range" id="articles"
-        :checked="$route.path === '/articles'"
+      <input class="peer/articles hidden" type="radio" name="range" id="articles" 
+        @click="navigateToArticles()"
       />
       <label
-      @click="navigateToArticles" 
         class="z-10 cursor-pointer px-6 py-2 text-center basis-full text-gray-400 transition-all duration-500 ease-[cubic-bezier(0.15,0.88,0.15,0.97)] hover:text-gray-500 peer-checked/articles:text-black dark:peer-checked/articles:text-white"
         for="articles"
       >
         Articles
       </label>
 
-      <input class="peer/uses hidden" type="radio" name="range" id="uses"
-        :checked="$route.path === '/uses'"
+      <input class="peer/uses hidden" type="radio" name="range" id="uses" 
+        @click="navigateToUses()"
       />
       <label
-      @click="navigateToUses" 
         class="z-10 cursor-pointer px-6 py-2 text-center basis-full text-gray-400 transition-all duration-500 ease-[cubic-bezier(0.15,0.88,0.15,0.97)] hover:text-gray-500 peer-checked/uses:text-black dark:peer-checked/uses:text-white"
         for="uses"
       >
