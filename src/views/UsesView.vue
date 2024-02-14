@@ -6,10 +6,13 @@
       </div>
       <div class="space-y-8 max-w-4xl mb-32 mt-16 sm:mt-20">
         <ToolsSection title="Workstation">
-          <ToolItem title="16” MacBook Pro, Intel Core i7, 16GB RAM (Late 2019)">
+          <ToolItem title="16” MacBook Pro, M1 Max, 64GB RAM">
+            Upgraded to this badboy a few months ago. More then enough to handle everything
+          </ToolItem>
+          <!-- <ToolItem title="16” MacBook Pro, Intel Core i7, 16GB RAM (Late 2019)">
             All handy for web development, but I’m not a fan of the keyboard.
             Could be better. But trusty nonetheless. Worked well for me for the last 2 years.
-          </ToolItem>
+          </ToolItem> -->
           <ToolItem title="hp Pavilion 27xi Display">
             Does it's job. Great additional screen for my MacBook Pro.
           </ToolItem>
